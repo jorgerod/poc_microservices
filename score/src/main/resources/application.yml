@@ -1,0 +1,36 @@
+spring:
+  application:
+    name: score-service
+#  zipkin:
+#    base-url: http://localhost:8090
+  boot:
+    admin:
+      url:
+        http://localhost:8070
+      
+eureka:
+  client:
+    eureka-server-u-r-l-context: http://localhost:8761
+
+logging:
+  level:
+    org:
+      springframework:
+        cloud:
+          sleuth: INFO
+
+
+---
+
+
+server:
+    port: 9000
+spring:
+    profiles: node1
+    
+---
+
+spring:
+    profiles: node2
+server:
+    port: 9001

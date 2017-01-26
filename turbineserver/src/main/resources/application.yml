@@ -1,0 +1,11 @@
+spring:
+  application:
+    name: turbine-server
+server:
+  port: 8765    
+turbine:
+  app-config: user-service,score-service
+  clusterNameExpression: new String('default')
+eureka:
+  client:
+    eureka-server-u-r-l-context: http://localhost:8761
