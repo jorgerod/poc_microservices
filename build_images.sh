@@ -2,6 +2,9 @@
 #user
 cd user && mvn clean package docker:build && cd ..
 
+#score
+cd score && mvn clean package docker:build && cd ..
+
 #eureka
 cd eurekaserver && mvn clean package docker:build && cd ..
 

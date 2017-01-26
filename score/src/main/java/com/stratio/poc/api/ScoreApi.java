@@ -23,7 +23,7 @@ import com.stratio.poc.common.dto.User;
 @RequestMapping(value = "/score/v1")
 public class ScoreApi {
 
-    @Value("${spring.profiles}")
+    @Value("${infoprofile}")
     private String profileName;
 
     @Autowired

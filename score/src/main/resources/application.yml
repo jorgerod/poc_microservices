@@ -10,7 +10,10 @@ spring:
       
 eureka:
   client:
-    eureka-server-u-r-l-context: http://localhost:8761
+    serviceUrl:
+      defaultZone: http://eurekaserver:8761/eureka/
+  instance:
+    preferIpAddress: true
 
 logging:
   level:
@@ -18,7 +21,9 @@ logging:
       springframework:
         cloud:
           sleuth: INFO
-
+server:
+    port: 9000
+infoprofile: node1 
 
 ---
 
@@ -27,6 +32,7 @@ server:
     port: 9000
 spring:
     profiles: node1
+infoprofile: node1  
     
 ---
 
@@ -34,3 +40,4 @@ spring:
     profiles: node2
 server:
     port: 9001
+infoprofile: node2

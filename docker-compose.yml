@@ -1,22 +1,30 @@
 version: '2'
 services:
   eurekaserver:
-    image: sanitas-eurekaserver
+    image: jrodriguezstratio/sanitas-eurekaserver
     container_name: container_eureka
     command: java -jar eurekaserver.jar
     ports:
       - "8761:8761"
   zuul:
-    image: sanitas-zuul
+    image: jrodriguezstratio/sanitas-zuul
     container_name: container_zuul
     command: java -jar zuul.jar
     ports:
       - "80:8081"
   user:
-    image: sanitas-user
+    image: jrodriguezstratio/sanitas-user
     command: java -jar user.jar
     ports:
-      - "9010"
+      - "9010:9010"
+    links:
+      - eurekaserver
+      - zuul
+  score:
+    image: jrodriguezstratio/sanitas-score
+    command: java -jar score.jar
+    ports:
+      - "9000:9000"
     links:
       - eurekaserver
       - zuul
