@@ -16,7 +16,7 @@ services:
     image: jrodriguezstratio/sanitas-user
     command: java -jar user.jar
     ports:
-      - "9010:9010"
+      - "80:9010"
     links:
       - eurekaserver
       - zuul
@@ -24,7 +24,7 @@ services:
     image: jrodriguezstratio/sanitas-score
     command: java -jar score.jar
     ports:
-      - "9000:9000"
+      - "80:9000"
     links:
       - eurekaserver
       - zuul
